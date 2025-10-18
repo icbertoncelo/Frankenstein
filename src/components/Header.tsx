@@ -9,6 +9,7 @@ import {
   Paperclip,
   CurrencyIcon,
   PersonStanding,
+  ListCheck,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -29,6 +30,11 @@ const ROUTES = [
     name: "Employee Validation",
     path: "/employee-validation",
     icon: <PersonStanding size={20} />,
+  },
+  {
+    name: "Item List Manager",
+    path: "/item-list-manager",
+    icon: <ListCheck size={20} />,
   },
 ];
 

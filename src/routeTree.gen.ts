@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as AppPathlessLayoutRouteImport } from './routes/_app/_pathlessLayout'
 import { Route as AppNestedCommentsIndexRouteImport } from './routes/_app/nested-comments/index'
+import { Route as AppItemListManagerIndexRouteImport } from './routes/_app/item-list-manager/index'
 import { Route as AppEmployeeValidationIndexRouteImport } from './routes/_app/employee-validation/index'
 import { Route as AppCryptoRankExchangeIndexRouteImport } from './routes/_app/crypto-rank-exchange/index'
 import { Route as AppBlogPostIndexRouteImport } from './routes/_app/blog-post/index'
@@ -28,6 +29,11 @@ const AppPathlessLayoutRoute = AppPathlessLayoutRouteImport.update({
 const AppNestedCommentsIndexRoute = AppNestedCommentsIndexRouteImport.update({
   id: '/_app/nested-comments/',
   path: '/nested-comments/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppItemListManagerIndexRoute = AppItemListManagerIndexRouteImport.update({
+  id: '/_app/item-list-manager/',
+  path: '/item-list-manager/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppEmployeeValidationIndexRoute =
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/blog-post': typeof AppBlogPostIndexRoute
   '/crypto-rank-exchange': typeof AppCryptoRankExchangeIndexRoute
   '/employee-validation': typeof AppEmployeeValidationIndexRoute
+  '/item-list-manager': typeof AppItemListManagerIndexRoute
   '/nested-comments': typeof AppNestedCommentsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/blog-post': typeof AppBlogPostIndexRoute
   '/crypto-rank-exchange': typeof AppCryptoRankExchangeIndexRoute
   '/employee-validation': typeof AppEmployeeValidationIndexRoute
+  '/item-list-manager': typeof AppItemListManagerIndexRoute
   '/nested-comments': typeof AppNestedCommentsIndexRoute
 }
 export interface FileRoutesById {
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/_app/blog-post/': typeof AppBlogPostIndexRoute
   '/_app/crypto-rank-exchange/': typeof AppCryptoRankExchangeIndexRoute
   '/_app/employee-validation/': typeof AppEmployeeValidationIndexRoute
+  '/_app/item-list-manager/': typeof AppItemListManagerIndexRoute
   '/_app/nested-comments/': typeof AppNestedCommentsIndexRoute
 }
 export interface FileRouteTypes {
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/blog-post'
     | '/crypto-rank-exchange'
     | '/employee-validation'
+    | '/item-list-manager'
     | '/nested-comments'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
     | '/blog-post'
     | '/crypto-rank-exchange'
     | '/employee-validation'
+    | '/item-list-manager'
     | '/nested-comments'
   id:
     | '__root__'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '/_app/blog-post/'
     | '/_app/crypto-rank-exchange/'
     | '/_app/employee-validation/'
+    | '/_app/item-list-manager/'
     | '/_app/nested-comments/'
   fileRoutesById: FileRoutesById
 }
@@ -102,6 +114,7 @@ export interface RootRouteChildren {
   AppBlogPostIndexRoute: typeof AppBlogPostIndexRoute
   AppCryptoRankExchangeIndexRoute: typeof AppCryptoRankExchangeIndexRoute
   AppEmployeeValidationIndexRoute: typeof AppEmployeeValidationIndexRoute
+  AppItemListManagerIndexRoute: typeof AppItemListManagerIndexRoute
   AppNestedCommentsIndexRoute: typeof AppNestedCommentsIndexRoute
 }
 
@@ -126,6 +139,13 @@ declare module '@tanstack/react-router' {
       path: '/nested-comments'
       fullPath: '/nested-comments'
       preLoaderRoute: typeof AppNestedCommentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/item-list-manager/': {
+      id: '/_app/item-list-manager/'
+      path: '/item-list-manager'
+      fullPath: '/item-list-manager'
+      preLoaderRoute: typeof AppItemListManagerIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/employee-validation/': {
@@ -158,6 +178,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppBlogPostIndexRoute: AppBlogPostIndexRoute,
   AppCryptoRankExchangeIndexRoute: AppCryptoRankExchangeIndexRoute,
   AppEmployeeValidationIndexRoute: AppEmployeeValidationIndexRoute,
+  AppItemListManagerIndexRoute: AppItemListManagerIndexRoute,
   AppNestedCommentsIndexRoute: AppNestedCommentsIndexRoute,
 }
 export const routeTree = rootRouteImport
