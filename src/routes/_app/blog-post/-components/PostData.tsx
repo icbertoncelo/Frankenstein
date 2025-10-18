@@ -9,7 +9,7 @@ interface PostDisplayProps {
 
 export function PostDisplay({ posts, onDeletePost }: PostDisplayProps) {
   return (
-    <div data-testid="posts-container" className="flex wrap gap-10">
+    <div data-testid="posts-container" className="flex wrap gap-6">
       {posts.map((post) => (
         <div
           key={post.id}

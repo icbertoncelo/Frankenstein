@@ -46,7 +46,7 @@ function CryptoRankExchange() {
   }
 
   return (
-    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-10">
+    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-6">
       <h1 className="text-2xl font-bold">CryptoRank Exchange</h1>
 
       <section className="w-full flex flex-col items-center text-center">

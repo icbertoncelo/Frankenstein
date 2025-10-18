@@ -18,6 +18,7 @@ import { Route as AppCryptoRankExchangeIndexRouteImport } from './routes/_app/cr
 import { Route as AppCodeReviewFeedbackIndexRouteImport } from './routes/_app/code-review-feedback/index'
 import { Route as AppBlogPostIndexRouteImport } from './routes/_app/blog-post/index'
 import { Route as AppArticlesSortingIndexRouteImport } from './routes/_app/articles-sorting/index'
+import { Route as AppAlgorithmsIndexRouteImport } from './routes/_app/algorithms/index'
 
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/_app/',
@@ -66,9 +67,15 @@ const AppArticlesSortingIndexRoute = AppArticlesSortingIndexRouteImport.update({
   path: '/articles-sorting/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAlgorithmsIndexRoute = AppAlgorithmsIndexRouteImport.update({
+  id: '/_app/algorithms/',
+  path: '/algorithms/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
+  '/algorithms': typeof AppAlgorithmsIndexRoute
   '/articles-sorting': typeof AppArticlesSortingIndexRoute
   '/blog-post': typeof AppBlogPostIndexRoute
   '/code-review-feedback': typeof AppCodeReviewFeedbackIndexRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
+  '/algorithms': typeof AppAlgorithmsIndexRoute
   '/articles-sorting': typeof AppArticlesSortingIndexRoute
   '/blog-post': typeof AppBlogPostIndexRoute
   '/code-review-feedback': typeof AppCodeReviewFeedbackIndexRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app/_pathlessLayout': typeof AppPathlessLayoutRoute
   '/_app/': typeof AppIndexRoute
+  '/_app/algorithms/': typeof AppAlgorithmsIndexRoute
   '/_app/articles-sorting/': typeof AppArticlesSortingIndexRoute
   '/_app/blog-post/': typeof AppBlogPostIndexRoute
   '/_app/code-review-feedback/': typeof AppCodeReviewFeedbackIndexRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/algorithms'
     | '/articles-sorting'
     | '/blog-post'
     | '/code-review-feedback'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/algorithms'
     | '/articles-sorting'
     | '/blog-post'
     | '/code-review-feedback'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_app/_pathlessLayout'
     | '/_app/'
+    | '/_app/algorithms/'
     | '/_app/articles-sorting/'
     | '/_app/blog-post/'
     | '/_app/code-review-feedback/'
@@ -136,6 +148,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   AppPathlessLayoutRoute: typeof AppPathlessLayoutRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppAlgorithmsIndexRoute: typeof AppAlgorithmsIndexRoute
   AppArticlesSortingIndexRoute: typeof AppArticlesSortingIndexRoute
   AppBlogPostIndexRoute: typeof AppBlogPostIndexRoute
   AppCodeReviewFeedbackIndexRoute: typeof AppCodeReviewFeedbackIndexRoute
@@ -210,12 +223,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppArticlesSortingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/algorithms/': {
+      id: '/_app/algorithms/'
+      path: '/algorithms'
+      fullPath: '/algorithms'
+      preLoaderRoute: typeof AppAlgorithmsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   AppPathlessLayoutRoute: AppPathlessLayoutRoute,
   AppIndexRoute: AppIndexRoute,
+  AppAlgorithmsIndexRoute: AppAlgorithmsIndexRoute,
   AppArticlesSortingIndexRoute: AppArticlesSortingIndexRoute,
   AppBlogPostIndexRoute: AppBlogPostIndexRoute,
   AppCodeReviewFeedbackIndexRoute: AppCodeReviewFeedbackIndexRoute,

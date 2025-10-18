@@ -12,6 +12,7 @@ import {
   ListCheck,
   CodeXml,
   SortAsc,
+  Binary,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -47,6 +48,11 @@ const ROUTES = [
     name: "Articles Sorting",
     path: "/articles-sorting",
     icon: <SortAsc size={20} />,
+  },
+  {
+    name: "Algorithms",
+    path: "/algorithms",
+    icon: <Binary size={20} />,
   },
 ];
 

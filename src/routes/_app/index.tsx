@@ -6,7 +6,7 @@ export const Route = createFileRoute("/_app/")({
 
 function App() {
   return (
-    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-10">
+    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-6">
       <h1 className="text-2xl font-bold">Frankenstein</h1>
       <p className="text-lg text-gray-700 text-center">
         Frankenstein is a project developed to explore and practice software

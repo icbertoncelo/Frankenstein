@@ -15,7 +15,7 @@ const ASPECTS = [
 
 function RouteComponent() {
   return (
-    <div className="flex flex-col items-center mx-auto w-full py-6 gap-10">
+    <div className="flex flex-col items-center mx-auto w-full py-6 gap-6">
       <h1 className="text-2xl font-bold">Code Review Feedback</h1>
 
       <div className="flex flex-wrap justify-center gap-8">
