@@ -34,8 +34,8 @@ function NestedCommentTree() {
   const commentTree = buildTree(COMMENTS);
 
   return (
-    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-10">
-      <h1 className="mb-2 text-2xl">💬 Comment Section</h1>
+    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-6">
+      <h1 className="text-2xl font-bold">💬 Comment Section</h1>
       {renderComments(commentTree)}
     </div>
   );

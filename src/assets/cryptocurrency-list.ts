@@ -1,4 +1,4 @@
-export const cryptocurrencyList = [
+export const CRYPTO_CURRENCY_DATA = [
   {
     code: "BNB",
     name: "BNB",

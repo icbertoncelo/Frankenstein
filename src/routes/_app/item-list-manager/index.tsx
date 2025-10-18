@@ -19,6 +19,7 @@ function RouteComponent() {
 
   return (
     <div className="flex flex-col items-center py-6 gap-4">
+      <h1 className="text-2xl font-bold">Item List Manager</h1>
       <input
         className="w-1/2 border border-gray-300 p-2 rounded"
         type="text"
@@ -32,7 +33,7 @@ function RouteComponent() {
       </Button>
       <ul data-testid="item-list">
         {items.map((item, index) => (
-          <li className="list-disc" key={index} data-testid="list-item">
+          <li key={index} className="list-disc" data-testid="list-item">
             {item}
           </li>
         ))}

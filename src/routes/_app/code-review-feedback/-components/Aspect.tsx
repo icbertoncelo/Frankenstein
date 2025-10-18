@@ -17,7 +17,7 @@ export function Aspect({ index, title }: AspectProps) {
 
   return (
     <div className="p-4 w-72 bg-white rounded shadow">
-      <h2 className="text-xl font-semibold mb-4">{title}</h2>
+      <strong className="text-xl font-semibold mb-4">{title}</strong>
       <div className="flex my-8 mx-0 justify-around">
         <button
           className="py-2 px-4 bg-green-100 hover:bg-green-200 rounded"

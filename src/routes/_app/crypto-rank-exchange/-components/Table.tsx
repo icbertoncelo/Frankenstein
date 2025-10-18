@@ -1,4 +1,4 @@
-import { cryptocurrencyList } from "@/assets/cryptocurrency-list";
+import { CRYPTO_CURRENCY_DATA } from "@/assets/cryptocurrency-list";
 import { AVAILABLE_BALANCE } from "..";
 
 export function Table({ amount }: { amount: number | null }) {
@@ -6,7 +6,7 @@ export function Table({ amount }: { amount: number | null }) {
     amount === null || (amount > 0 && amount <= AVAILABLE_BALANCE);
 
   function renderTableBody() {
-    return cryptocurrencyList.map((crypto) => {
+    return CRYPTO_CURRENCY_DATA.map((crypto) => {
       const numberOfCoins = amount ? amount * crypto.rate : 0;
       const fixedNumberOfCoins = numberOfCoins.toFixed(8);
       const numberOfCoinsLabel = isAmountValid ? fixedNumberOfCoins : "n/a";

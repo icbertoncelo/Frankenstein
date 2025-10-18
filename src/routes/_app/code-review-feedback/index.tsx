@@ -15,10 +15,12 @@ const ASPECTS = [
 
 function RouteComponent() {
   return (
-    <div className="mx-auto text-center max-w-screen-xl">
-      <div className="flex flex-wrap justify-center mt-8 gap-8">
+    <div className="flex flex-col items-center mx-auto w-full py-6 gap-10">
+      <h1 className="text-2xl font-bold">Code Review Feedback</h1>
+
+      <div className="flex flex-wrap justify-center gap-8">
         {ASPECTS.map((aspect, index) => (
-          <Aspect index={index} title={aspect} />
+          <Aspect key={aspect} index={index} title={aspect} />
         ))}
       </div>
     </div>

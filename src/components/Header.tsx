@@ -11,6 +11,7 @@ import {
   PersonStanding,
   ListCheck,
   CodeXml,
+  SortAsc,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -41,6 +42,11 @@ const ROUTES = [
     name: "Code Review Feedback",
     path: "/code-review-feedback",
     icon: <CodeXml size={20} />,
+  },
+  {
+    name: "Articles Sorting",
+    path: "/articles-sorting",
+    icon: <SortAsc size={20} />,
   },
 ];
 
@@ -84,6 +90,7 @@ export default function Header() {
         <nav className="flex-1 p-4 overflow-y-auto">
           {ROUTES.map((route) => (
             <Link
+              key={route.path}
               to={route.path}
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
