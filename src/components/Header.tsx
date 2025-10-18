@@ -10,6 +10,7 @@ import {
   CurrencyIcon,
   PersonStanding,
   ListCheck,
+  CodeXml,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -35,6 +36,11 @@ const ROUTES = [
     name: "Item List Manager",
     path: "/item-list-manager",
     icon: <ListCheck size={20} />,
+  },
+  {
+    name: "Code Review Feedback",
+    path: "/code-review-feedback",
+    icon: <CodeXml size={20} />,
   },
 ];
 

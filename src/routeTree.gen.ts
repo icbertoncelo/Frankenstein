@@ -15,6 +15,7 @@ import { Route as AppNestedCommentsIndexRouteImport } from './routes/_app/nested
 import { Route as AppItemListManagerIndexRouteImport } from './routes/_app/item-list-manager/index'
 import { Route as AppEmployeeValidationIndexRouteImport } from './routes/_app/employee-validation/index'
 import { Route as AppCryptoRankExchangeIndexRouteImport } from './routes/_app/crypto-rank-exchange/index'
+import { Route as AppCodeReviewFeedbackIndexRouteImport } from './routes/_app/code-review-feedback/index'
 import { Route as AppBlogPostIndexRouteImport } from './routes/_app/blog-post/index'
 
 const AppIndexRoute = AppIndexRouteImport.update({
@@ -48,6 +49,12 @@ const AppCryptoRankExchangeIndexRoute =
     path: '/crypto-rank-exchange/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AppCodeReviewFeedbackIndexRoute =
+  AppCodeReviewFeedbackIndexRouteImport.update({
+    id: '/_app/code-review-feedback/',
+    path: '/code-review-feedback/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AppBlogPostIndexRoute = AppBlogPostIndexRouteImport.update({
   id: '/_app/blog-post/',
   path: '/blog-post/',
@@ -57,6 +64,7 @@ const AppBlogPostIndexRoute = AppBlogPostIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
   '/blog-post': typeof AppBlogPostIndexRoute
+  '/code-review-feedback': typeof AppCodeReviewFeedbackIndexRoute
   '/crypto-rank-exchange': typeof AppCryptoRankExchangeIndexRoute
   '/employee-validation': typeof AppEmployeeValidationIndexRoute
   '/item-list-manager': typeof AppItemListManagerIndexRoute
@@ -65,6 +73,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
   '/blog-post': typeof AppBlogPostIndexRoute
+  '/code-review-feedback': typeof AppCodeReviewFeedbackIndexRoute
   '/crypto-rank-exchange': typeof AppCryptoRankExchangeIndexRoute
   '/employee-validation': typeof AppEmployeeValidationIndexRoute
   '/item-list-manager': typeof AppItemListManagerIndexRoute
@@ -75,6 +84,7 @@ export interface FileRoutesById {
   '/_app/_pathlessLayout': typeof AppPathlessLayoutRoute
   '/_app/': typeof AppIndexRoute
   '/_app/blog-post/': typeof AppBlogPostIndexRoute
+  '/_app/code-review-feedback/': typeof AppCodeReviewFeedbackIndexRoute
   '/_app/crypto-rank-exchange/': typeof AppCryptoRankExchangeIndexRoute
   '/_app/employee-validation/': typeof AppEmployeeValidationIndexRoute
   '/_app/item-list-manager/': typeof AppItemListManagerIndexRoute
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog-post'
+    | '/code-review-feedback'
     | '/crypto-rank-exchange'
     | '/employee-validation'
     | '/item-list-manager'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/blog-post'
+    | '/code-review-feedback'
     | '/crypto-rank-exchange'
     | '/employee-validation'
     | '/item-list-manager'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
     | '/_app/_pathlessLayout'
     | '/_app/'
     | '/_app/blog-post/'
+    | '/_app/code-review-feedback/'
     | '/_app/crypto-rank-exchange/'
     | '/_app/employee-validation/'
     | '/_app/item-list-manager/'
@@ -112,6 +125,7 @@ export interface RootRouteChildren {
   AppPathlessLayoutRoute: typeof AppPathlessLayoutRoute
   AppIndexRoute: typeof AppIndexRoute
   AppBlogPostIndexRoute: typeof AppBlogPostIndexRoute
+  AppCodeReviewFeedbackIndexRoute: typeof AppCodeReviewFeedbackIndexRoute
   AppCryptoRankExchangeIndexRoute: typeof AppCryptoRankExchangeIndexRoute
   AppEmployeeValidationIndexRoute: typeof AppEmployeeValidationIndexRoute
   AppItemListManagerIndexRoute: typeof AppItemListManagerIndexRoute
@@ -162,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppCryptoRankExchangeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/code-review-feedback/': {
+      id: '/_app/code-review-feedback/'
+      path: '/code-review-feedback'
+      fullPath: '/code-review-feedback'
+      preLoaderRoute: typeof AppCodeReviewFeedbackIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app/blog-post/': {
       id: '/_app/blog-post/'
       path: '/blog-post'
@@ -176,6 +197,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppPathlessLayoutRoute: AppPathlessLayoutRoute,
   AppIndexRoute: AppIndexRoute,
   AppBlogPostIndexRoute: AppBlogPostIndexRoute,
+  AppCodeReviewFeedbackIndexRoute: AppCodeReviewFeedbackIndexRoute,
   AppCryptoRankExchangeIndexRoute: AppCryptoRankExchangeIndexRoute,
   AppEmployeeValidationIndexRoute: AppEmployeeValidationIndexRoute,
   AppItemListManagerIndexRoute: AppItemListManagerIndexRoute,
