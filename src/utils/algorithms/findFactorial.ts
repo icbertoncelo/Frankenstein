@@ -1,11 +1,11 @@
 export function findFactorial(n: number) {
-  if(n < 0) return 
-  
-  let result = 1
+  if (n < 0) return;
 
-  for(let i = 1; i <=n; i++) {
-    result *= i
+  let result = 1;
+
+  for (let i = 1; i <= n; i++) {
+    result *= i;
   }
 
-  return result
+  return result;
 }

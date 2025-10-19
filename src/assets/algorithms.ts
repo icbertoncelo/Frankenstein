@@ -3,13 +3,15 @@ import {
   findFactorial,
   generateFibonacciSequence,
   reverseString,
+  checkIsPrimeNumber,
 } from "@/utils/algorithms";
 
 export type ActionKey =
   | "fibonacci"
   | "palindrome"
   | "reverseString"
-  | "findFactorial";
+  | "findFactorial"
+  | "checkPrimeNumber";
 
 export interface AlgorithmActions {
   name: string;
@@ -66,6 +68,20 @@ export const ALGORITHMS: AlgorithmActions[] = [
       const factorial = findFactorial(Number(input) || 0);
 
       return String(factorial);
+    },
+  },
+  {
+    name: "Check Prime Number",
+    key: "checkPrimeNumber",
+    placeholder: "Enter a non-negative number",
+    action: (input) => {
+      if (!input || isNaN(Number(input)) || Number(input) < 0) {
+        return "Please enter a valid number";
+      }
+
+      const isPrimeNumber = checkIsPrimeNumber(Number(input) || 0);
+
+      return isPrimeNumber ? "Yes" : "No";
     },
   },
 ];
