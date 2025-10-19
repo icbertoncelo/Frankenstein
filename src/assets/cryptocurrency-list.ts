@@ -1,4 +1,10 @@
-export const CRYPTO_CURRENCY_DATA = [
+interface CryptoCurrency {
+  code: string;
+  name: string;
+  rate: number;
+}
+
+export const CRYPTO_CURRENCY_DATA: CryptoCurrency[] = [
   {
     code: "BNB",
     name: "BNB",

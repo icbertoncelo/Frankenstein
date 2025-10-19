@@ -1,4 +1,10 @@
-export const ARTICLES_DATA = [
+interface Article {
+  title: string;
+  upvotes: number;
+  date: string;
+}
+
+export const ARTICLES_DATA: Article[] = [
   {
     title: "A message to our customers",
     upvotes: 12,

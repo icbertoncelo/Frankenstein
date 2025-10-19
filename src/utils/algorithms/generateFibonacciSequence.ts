@@ -6,5 +6,5 @@ export function generateFibonacciSequence(n: number) {
     sequence.push(nextValue)
   }
 
-  return sequence
+  return sequence.slice(0, n)
 }
