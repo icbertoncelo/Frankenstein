@@ -5,13 +5,17 @@ import {
   reverseString,
   checkIsPrimeNumber,
 } from "@/utils/algorithms";
+import { checkIsArmstrongNumber } from "@/utils/algorithms/checkIsArmstrongNumber";
+import { reverseNumber } from "@/utils/algorithms/reverseNumber";
 
 export type ActionKey =
   | "fibonacci"
   | "palindrome"
   | "reverseString"
   | "findFactorial"
-  | "checkPrimeNumber";
+  | "checkPrimeNumber"
+  | "reverseNumber"
+  | "checkIsArmstrongNumber"
 
 export interface AlgorithmActions {
   name: string;
@@ -82,6 +86,34 @@ export const ALGORITHMS: AlgorithmActions[] = [
       const isPrimeNumber = checkIsPrimeNumber(Number(input) || 0);
 
       return isPrimeNumber ? "Yes" : "No";
+    },
+  },
+  {
+    name: "Reverse Number",
+    key: "reverseNumber",
+    placeholder: "Enter a non-negative number",
+    action: (input) => {
+      if (!input || isNaN(Number(input)) || Number(input) < 0) {
+        return "Please enter a valid number";
+      }
+
+      const reversedNumber = reverseNumber(Number(input) || 0);
+
+      return reversedNumber
+    },
+  },
+  {
+    name: "Check Armstrong Number",
+    key: "checkIsArmstrongNumber",
+    placeholder: "Enter a non-negative number",
+    action: (input) => {
+      if (!input || isNaN(Number(input)) || Number(input) < 0) {
+        return "Please enter a valid number";
+      }
+
+      const isArmstrongNumber = checkIsArmstrongNumber(Number(input) || 0);
+
+      return isArmstrongNumber ? "Yes" : "No";
     },
   },
 ];

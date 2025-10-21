@@ -13,6 +13,7 @@ import {
   CodeXml,
   SortAsc,
   Binary,
+  FormInput,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -53,6 +54,11 @@ const ROUTES = [
     name: "Algorithms",
     path: "/algorithms",
     icon: <Binary size={20} />,
+  },
+  {
+    name: "Contact Form",
+    path: "/contact-form",
+    icon: <FormInput size={20} />,
   },
 ];
 
