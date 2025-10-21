@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as AppPathlessLayoutRouteImport } from './routes/_app/_pathlessLayout'
+import { Route as AppPatientMedicalRecordsIndexRouteImport } from './routes/_app/patient-medical-records/index'
 import { Route as AppNestedCommentsIndexRouteImport } from './routes/_app/nested-comments/index'
 import { Route as AppItemListManagerIndexRouteImport } from './routes/_app/item-list-manager/index'
 import { Route as AppEmployeeValidationIndexRouteImport } from './routes/_app/employee-validation/index'
@@ -30,6 +31,12 @@ const AppPathlessLayoutRoute = AppPathlessLayoutRouteImport.update({
   id: '/_app/_pathlessLayout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppPatientMedicalRecordsIndexRoute =
+  AppPatientMedicalRecordsIndexRouteImport.update({
+    id: '/_app/patient-medical-records/',
+    path: '/patient-medical-records/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AppNestedCommentsIndexRoute = AppNestedCommentsIndexRouteImport.update({
   id: '/_app/nested-comments/',
   path: '/nested-comments/',
@@ -90,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/employee-validation': typeof AppEmployeeValidationIndexRoute
   '/item-list-manager': typeof AppItemListManagerIndexRoute
   '/nested-comments': typeof AppNestedCommentsIndexRoute
+  '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
@@ -102,6 +110,7 @@ export interface FileRoutesByTo {
   '/employee-validation': typeof AppEmployeeValidationIndexRoute
   '/item-list-manager': typeof AppItemListManagerIndexRoute
   '/nested-comments': typeof AppNestedCommentsIndexRoute
+  '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +125,7 @@ export interface FileRoutesById {
   '/_app/employee-validation/': typeof AppEmployeeValidationIndexRoute
   '/_app/item-list-manager/': typeof AppItemListManagerIndexRoute
   '/_app/nested-comments/': typeof AppNestedCommentsIndexRoute
+  '/_app/patient-medical-records/': typeof AppPatientMedicalRecordsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/employee-validation'
     | '/item-list-manager'
     | '/nested-comments'
+    | '/patient-medical-records'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/employee-validation'
     | '/item-list-manager'
     | '/nested-comments'
+    | '/patient-medical-records'
   id:
     | '__root__'
     | '/_app/_pathlessLayout'
@@ -155,6 +167,7 @@ export interface FileRouteTypes {
     | '/_app/employee-validation/'
     | '/_app/item-list-manager/'
     | '/_app/nested-comments/'
+    | '/_app/patient-medical-records/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -169,6 +182,7 @@ export interface RootRouteChildren {
   AppEmployeeValidationIndexRoute: typeof AppEmployeeValidationIndexRoute
   AppItemListManagerIndexRoute: typeof AppItemListManagerIndexRoute
   AppNestedCommentsIndexRoute: typeof AppNestedCommentsIndexRoute
+  AppPatientMedicalRecordsIndexRoute: typeof AppPatientMedicalRecordsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,6 +199,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: ''
       preLoaderRoute: typeof AppPathlessLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/patient-medical-records/': {
+      id: '/_app/patient-medical-records/'
+      path: '/patient-medical-records'
+      fullPath: '/patient-medical-records'
+      preLoaderRoute: typeof AppPatientMedicalRecordsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/nested-comments/': {
@@ -265,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppEmployeeValidationIndexRoute: AppEmployeeValidationIndexRoute,
   AppItemListManagerIndexRoute: AppItemListManagerIndexRoute,
   AppNestedCommentsIndexRoute: AppNestedCommentsIndexRoute,
+  AppPatientMedicalRecordsIndexRoute: AppPatientMedicalRecordsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

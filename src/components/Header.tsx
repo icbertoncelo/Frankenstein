@@ -14,6 +14,7 @@ import {
   SortAsc,
   Binary,
   FormInput,
+  Heart,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -59,6 +60,11 @@ const ROUTES = [
     name: "Contact Form",
     path: "/contact-form",
     icon: <FormInput size={20} />,
+  },
+  {
+    name: "Patient Medical Records",
+    path: "/patient-medical-records",
+    icon: <Heart size={20} />,
   },
 ];
 
