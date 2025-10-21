@@ -17,18 +17,15 @@ export function Records({ record, setRecord }: RecordsProps) {
   } = record.data[0];
 
   function handleNextRecord() {
-    if (record === null) return;
-
     const recordId = Number(record.id);
+
     if (recordId === medical_records.length) {
       setRecord(medical_records[0]);
     } else {
       const newRecord = medical_records.find(
         (item) => Number(item.id) === recordId + 1
       );
-      if (newRecord) {
-        setRecord(newRecord);
-      }
+      newRecord && setRecord(newRecord);
     }
   }
 

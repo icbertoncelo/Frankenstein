@@ -1,13 +1,14 @@
 import { medical_records } from "@/assets/medical-records";
 import { Button } from "@/components/Button";
+import { useState } from "react";
 
 interface SearchProps {
   setRecord: (record: any) => void;
-  setId: (id: string) => void;
-  id: string;
 }
 
-export function Search({ setRecord, setId, id }: SearchProps) {
+export function Search({ setRecord }: SearchProps) {
+  const [id, setId] = useState("");
+
   function handleSelectPatient(event: React.ChangeEvent<HTMLSelectElement>) {
     setId(event.target.value);
   }
