@@ -1,4 +1,4 @@
-import { medical_records } from "@/assets/medical-records";
+import { MEDICAL_RECORDS } from "@/assets/medical-records";
 import { Button } from "@/components/Button";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export function Search({ setRecord }: SearchProps) {
       alert("Please select a patient name");
     }
 
-    setRecord(medical_records.find((record) => record.id === id));
+    setRecord(MEDICAL_RECORDS.find((record) => record.id === id));
   }
 
   return (
@@ -38,7 +38,7 @@ export function Search({ setRecord }: SearchProps) {
           <option value="0" disabled>
             Select Patient
           </option>
-          {medical_records.map((record) => (
+          {MEDICAL_RECORDS.map((record) => (
             <option value={record.id} key={record.id}>
               {record.data[0].userName}
             </option>

@@ -15,6 +15,7 @@ import {
   Binary,
   FormInput,
   Heart,
+  Sliders,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -65,6 +66,11 @@ const ROUTES = [
     name: "Patient Medical Records",
     path: "/patient-medical-records",
     icon: <Heart size={20} />,
+  },
+  {
+    name: "Slideshow",
+    path: "/slideshow",
+    icon: <Sliders size={20} />,
   },
 ];
 

@@ -1,5 +1,5 @@
 import {
-  medical_records,
+  MEDICAL_RECORDS,
   type MedicalRecordSet,
 } from "@/assets/medical-records";
 import { Button } from "@/components/Button";
@@ -19,10 +19,10 @@ export function Records({ record, setRecord }: RecordsProps) {
   function handleNextRecord() {
     const recordId = Number(record.id);
 
-    if (recordId === medical_records.length) {
-      setRecord(medical_records[0]);
+    if (recordId === MEDICAL_RECORDS.length) {
+      setRecord(MEDICAL_RECORDS[0]);
     } else {
-      const newRecord = medical_records.find(
+      const newRecord = MEDICAL_RECORDS.find(
         (item) => Number(item.id) === recordId + 1
       );
       newRecord && setRecord(newRecord);

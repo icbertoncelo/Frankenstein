@@ -31,7 +31,7 @@ export interface MedicalRecordSet {
   data: MedicalRecord[];
 }
 
-export const medical_records: MedicalRecordSet[] = [
+export const MEDICAL_RECORDS: MedicalRecordSet[] = [
   {
     id: "1",
     data: [
