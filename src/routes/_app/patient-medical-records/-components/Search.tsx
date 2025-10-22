@@ -25,7 +25,7 @@ export function Search({ setRecord }: SearchProps) {
 
   return (
     <form
-      className="flex flex-row items-end gap-4 w-full max-w-2xl"
+      className="flex flex-row items-end gap-6 w-full max-w-2xl"
       onSubmit={handleShowRecords}
     >
       <div className="flex-1">

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/_app/slideshow/")({
 
 function RouteComponent() {
   return (
-    <div className="flex flex-col items-center py-6 gap-4">
+    <div className="flex flex-col items-center py-6 gap-6">
       <h1 className="text-2xl font-bold">Slideshow</h1>
       <Slides slides={SLIDES_DATA} />
     </div>

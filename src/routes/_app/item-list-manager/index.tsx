@@ -18,7 +18,7 @@ function RouteComponent() {
   };
 
   return (
-    <div className="flex flex-col items-center py-6 gap-4">
+    <div className="flex flex-col items-center py-6 gap-6">
       <h1 className="text-2xl font-bold">Item List Manager</h1>
       <input
         className="w-1/2 border border-gray-300 p-2 rounded"

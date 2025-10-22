@@ -31,7 +31,7 @@ function RouteComponent() {
     <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-6">
       <h1 className="text-2xl font-bold">Articles Sorting</h1>
 
-      <div className="flex flex-row items-center justify-center gap-4 bg-white p-6 rounded-lg shadow-md">
+      <div className="flex flex-row items-center justify-center gap-6 bg-white p-6 rounded-lg shadow-md">
         <label className="text-xs mb-0 uppercase font-light tracking-widest text-gray-500 mr-4">
           Sort By
         </label>

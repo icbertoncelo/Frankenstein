@@ -29,7 +29,7 @@ export function Slides({ slides }: SlidesProps) {
 
   return (
     <div className="max-w-2xl mx-auto gap-6 flex flex-col">
-      <div id="navigation" className="flex justify-center gap-4">
+      <div id="navigation" className="flex justify-center gap-6">
         <Button
           data-testid="button-restart"
           onClick={handleRestart}

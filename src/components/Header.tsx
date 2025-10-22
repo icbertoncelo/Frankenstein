@@ -16,6 +16,7 @@ import {
   FormInput,
   Heart,
   Sliders,
+  LetterText,
 } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
@@ -71,6 +72,11 @@ const ROUTES = [
     name: "Slideshow",
     path: "/slideshow",
     icon: <Sliders size={20} />,
+  },
+  {
+    name: "Word Omitter",
+    path: "/word-omitter",
+    icon: <LetterText size={20} />,
   },
 ];
 

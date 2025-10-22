@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as AppPathlessLayoutRouteImport } from './routes/_app/_pathlessLayout'
+import { Route as AppWordOmitterIndexRouteImport } from './routes/_app/word-omitter/index'
 import { Route as AppSlideshowIndexRouteImport } from './routes/_app/slideshow/index'
 import { Route as AppPatientMedicalRecordsIndexRouteImport } from './routes/_app/patient-medical-records/index'
 import { Route as AppNestedCommentsIndexRouteImport } from './routes/_app/nested-comments/index'
@@ -30,6 +31,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
 } as any)
 const AppPathlessLayoutRoute = AppPathlessLayoutRouteImport.update({
   id: '/_app/_pathlessLayout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppWordOmitterIndexRoute = AppWordOmitterIndexRouteImport.update({
+  id: '/_app/word-omitter/',
+  path: '/word-omitter/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppSlideshowIndexRoute = AppSlideshowIndexRouteImport.update({
@@ -105,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/nested-comments': typeof AppNestedCommentsIndexRoute
   '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
   '/slideshow': typeof AppSlideshowIndexRoute
+  '/word-omitter': typeof AppWordOmitterIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/nested-comments': typeof AppNestedCommentsIndexRoute
   '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
   '/slideshow': typeof AppSlideshowIndexRoute
+  '/word-omitter': typeof AppWordOmitterIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/_app/nested-comments/': typeof AppNestedCommentsIndexRoute
   '/_app/patient-medical-records/': typeof AppPatientMedicalRecordsIndexRoute
   '/_app/slideshow/': typeof AppSlideshowIndexRoute
+  '/_app/word-omitter/': typeof AppWordOmitterIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/nested-comments'
     | '/patient-medical-records'
     | '/slideshow'
+    | '/word-omitter'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/nested-comments'
     | '/patient-medical-records'
     | '/slideshow'
+    | '/word-omitter'
   id:
     | '__root__'
     | '/_app/_pathlessLayout'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/_app/nested-comments/'
     | '/_app/patient-medical-records/'
     | '/_app/slideshow/'
+    | '/_app/word-omitter/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   AppNestedCommentsIndexRoute: typeof AppNestedCommentsIndexRoute
   AppPatientMedicalRecordsIndexRoute: typeof AppPatientMedicalRecordsIndexRoute
   AppSlideshowIndexRoute: typeof AppSlideshowIndexRoute
+  AppWordOmitterIndexRoute: typeof AppWordOmitterIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: ''
       preLoaderRoute: typeof AppPathlessLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/word-omitter/': {
+      id: '/_app/word-omitter/'
+      path: '/word-omitter'
+      fullPath: '/word-omitter'
+      preLoaderRoute: typeof AppWordOmitterIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/slideshow/': {
@@ -308,6 +328,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppNestedCommentsIndexRoute: AppNestedCommentsIndexRoute,
   AppPatientMedicalRecordsIndexRoute: AppPatientMedicalRecordsIndexRoute,
   AppSlideshowIndexRoute: AppSlideshowIndexRoute,
+  AppWordOmitterIndexRoute: AppWordOmitterIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

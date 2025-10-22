@@ -59,7 +59,7 @@ function RouteComponent() {
     Object.values(userForm).every((field) => !field);
 
   return (
-    <div className="flex flex-col items-center py-6 gap-4">
+    <div className="flex flex-col items-center py-6 gap-6">
       <div className="flex flex-col items-start w-1/2" data-testid="input-name">
         <input
           className="w-full border border-gray-300 p-2 rounded"

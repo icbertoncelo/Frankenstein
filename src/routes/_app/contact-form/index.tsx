@@ -39,7 +39,7 @@ function RouteComponent() {
       <h1 className="text-2xl font-bold text-gray-800">Contact Form</h1>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 w-full max-w-md bg-white p-6 rounded-lg shadow-md"
+        className="flex flex-col gap-6 w-full max-w-md bg-white p-6 rounded-lg shadow-md"
       >
         <input
           type="text"

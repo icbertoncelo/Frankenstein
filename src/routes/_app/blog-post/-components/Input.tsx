@@ -9,7 +9,7 @@ interface InputProps {
 
 export function Input({ onChangePostFormData, postFormData }: InputProps) {
   return (
-    <div className="flex flex-col justify-content-center items-center gap-4">
+    <div className="flex flex-col justify-content-center items-center gap-6">
       <input
         className="w-full border border-gray-300 p-2 rounded"
         type="text"

@@ -48,7 +48,7 @@ function Posts() {
     <div className="flex flex-col items-center text-center p-6 gap-6">
       <h1 className="text-2xl font-bold">Blog Post</h1>
 
-      <div className="flex flex-col gap-4 w-1/2">
+      <div className="flex flex-col gap-6 w-1/2">
         <Input
           onChangePostFormData={handleChangePostFormData}
           postFormData={postFormData}
