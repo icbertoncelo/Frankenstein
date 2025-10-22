@@ -34,9 +34,15 @@ function NestedCommentTree() {
   const commentTree = buildTree(COMMENTS);
 
   return (
-    <div className="flex flex-col items-center mx-auto max-w-2xl py-6 gap-6">
+    <div className="flex flex-col items-center mx-auto w-1/2 py-6 gap-6">
       <h1 className="text-2xl font-bold">💬 Comment Section</h1>
-      {renderComments(commentTree)}
+      <p>This challenge aims to create a nested tree based on the data below</p>
+      <div className="flex flex-row gap-6">
+        <pre className="bg-gray-100 p-4 rounded overflow-x-auto">
+          {`${JSON.stringify(COMMENTS, null, 2)}`}
+        </pre>
+        {renderComments(commentTree)}
+      </div>
     </div>
   );
 }
