@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as AppPathlessLayoutRouteImport } from './routes/_app/_pathlessLayout'
+import { Route as AppZustandIndexRouteImport } from './routes/_app/zustand/index'
 import { Route as AppWordOmitterIndexRouteImport } from './routes/_app/word-omitter/index'
+import { Route as AppTanstackFormIndexRouteImport } from './routes/_app/tanstack-form/index'
 import { Route as AppSlideshowIndexRouteImport } from './routes/_app/slideshow/index'
 import { Route as AppPatientMedicalRecordsIndexRouteImport } from './routes/_app/patient-medical-records/index'
 import { Route as AppNestedCommentsIndexRouteImport } from './routes/_app/nested-comments/index'
@@ -33,9 +35,19 @@ const AppPathlessLayoutRoute = AppPathlessLayoutRouteImport.update({
   id: '/_app/_pathlessLayout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppZustandIndexRoute = AppZustandIndexRouteImport.update({
+  id: '/_app/zustand/',
+  path: '/zustand/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppWordOmitterIndexRoute = AppWordOmitterIndexRouteImport.update({
   id: '/_app/word-omitter/',
   path: '/word-omitter/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppTanstackFormIndexRoute = AppTanstackFormIndexRouteImport.update({
+  id: '/_app/tanstack-form/',
+  path: '/tanstack-form/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppSlideshowIndexRoute = AppSlideshowIndexRouteImport.update({
@@ -111,7 +123,9 @@ export interface FileRoutesByFullPath {
   '/nested-comments': typeof AppNestedCommentsIndexRoute
   '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
   '/slideshow': typeof AppSlideshowIndexRoute
+  '/tanstack-form': typeof AppTanstackFormIndexRoute
   '/word-omitter': typeof AppWordOmitterIndexRoute
+  '/zustand': typeof AppZustandIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
@@ -126,7 +140,9 @@ export interface FileRoutesByTo {
   '/nested-comments': typeof AppNestedCommentsIndexRoute
   '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
   '/slideshow': typeof AppSlideshowIndexRoute
+  '/tanstack-form': typeof AppTanstackFormIndexRoute
   '/word-omitter': typeof AppWordOmitterIndexRoute
+  '/zustand': typeof AppZustandIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -143,7 +159,9 @@ export interface FileRoutesById {
   '/_app/nested-comments/': typeof AppNestedCommentsIndexRoute
   '/_app/patient-medical-records/': typeof AppPatientMedicalRecordsIndexRoute
   '/_app/slideshow/': typeof AppSlideshowIndexRoute
+  '/_app/tanstack-form/': typeof AppTanstackFormIndexRoute
   '/_app/word-omitter/': typeof AppWordOmitterIndexRoute
+  '/_app/zustand/': typeof AppZustandIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -160,7 +178,9 @@ export interface FileRouteTypes {
     | '/nested-comments'
     | '/patient-medical-records'
     | '/slideshow'
+    | '/tanstack-form'
     | '/word-omitter'
+    | '/zustand'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -175,7 +195,9 @@ export interface FileRouteTypes {
     | '/nested-comments'
     | '/patient-medical-records'
     | '/slideshow'
+    | '/tanstack-form'
     | '/word-omitter'
+    | '/zustand'
   id:
     | '__root__'
     | '/_app/_pathlessLayout'
@@ -191,7 +213,9 @@ export interface FileRouteTypes {
     | '/_app/nested-comments/'
     | '/_app/patient-medical-records/'
     | '/_app/slideshow/'
+    | '/_app/tanstack-form/'
     | '/_app/word-omitter/'
+    | '/_app/zustand/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -208,7 +232,9 @@ export interface RootRouteChildren {
   AppNestedCommentsIndexRoute: typeof AppNestedCommentsIndexRoute
   AppPatientMedicalRecordsIndexRoute: typeof AppPatientMedicalRecordsIndexRoute
   AppSlideshowIndexRoute: typeof AppSlideshowIndexRoute
+  AppTanstackFormIndexRoute: typeof AppTanstackFormIndexRoute
   AppWordOmitterIndexRoute: typeof AppWordOmitterIndexRoute
+  AppZustandIndexRoute: typeof AppZustandIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -227,11 +253,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppPathlessLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/zustand/': {
+      id: '/_app/zustand/'
+      path: '/zustand'
+      fullPath: '/zustand'
+      preLoaderRoute: typeof AppZustandIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app/word-omitter/': {
       id: '/_app/word-omitter/'
       path: '/word-omitter'
       fullPath: '/word-omitter'
       preLoaderRoute: typeof AppWordOmitterIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/tanstack-form/': {
+      id: '/_app/tanstack-form/'
+      path: '/tanstack-form'
+      fullPath: '/tanstack-form'
+      preLoaderRoute: typeof AppTanstackFormIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/slideshow/': {
@@ -328,7 +368,9 @@ const rootRouteChildren: RootRouteChildren = {
   AppNestedCommentsIndexRoute: AppNestedCommentsIndexRoute,
   AppPatientMedicalRecordsIndexRoute: AppPatientMedicalRecordsIndexRoute,
   AppSlideshowIndexRoute: AppSlideshowIndexRoute,
+  AppTanstackFormIndexRoute: AppTanstackFormIndexRoute,
   AppWordOmitterIndexRoute: AppWordOmitterIndexRoute,
+  AppZustandIndexRoute: AppZustandIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
