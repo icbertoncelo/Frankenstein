@@ -3,16 +3,22 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  isFavorite: boolean;
 }
 
-export interface CartState {
-  items: CartItem[];
-}
+export type CartItemInput = Omit<CartItem, "isFavorite"> & {
+  isFavorite?: boolean;
+};
 
 export interface CartActions {
-  addItem: (item: CartItem) => void;
+  addItem: (item: CartItemInput) => void;
   removeItem: (id: string) => void;
+  toggleFavorite: (id: string) => void;
   clearCart: () => void;
 }
 
-export type CartStore = CartState & CartActions;
+export interface CartStore {
+  items: CartItem[];
+  actions: CartActions;
+}
+

@@ -11,9 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as AppPathlessLayoutRouteImport } from './routes/_app/_pathlessLayout'
-import { Route as AppZustandIndexRouteImport } from './routes/_app/zustand/index'
 import { Route as AppWordOmitterIndexRouteImport } from './routes/_app/word-omitter/index'
 import { Route as AppTanstackFormIndexRouteImport } from './routes/_app/tanstack-form/index'
+import { Route as AppStateManagementIndexRouteImport } from './routes/_app/state-management/index'
 import { Route as AppSlideshowIndexRouteImport } from './routes/_app/slideshow/index'
 import { Route as AppPatientMedicalRecordsIndexRouteImport } from './routes/_app/patient-medical-records/index'
 import { Route as AppNestedCommentsIndexRouteImport } from './routes/_app/nested-comments/index'
@@ -25,6 +25,8 @@ import { Route as AppCodeReviewFeedbackIndexRouteImport } from './routes/_app/co
 import { Route as AppBlogPostIndexRouteImport } from './routes/_app/blog-post/index'
 import { Route as AppArticlesSortingIndexRouteImport } from './routes/_app/articles-sorting/index'
 import { Route as AppAlgorithmsIndexRouteImport } from './routes/_app/algorithms/index'
+import { Route as AppStateManagementApproachesZustandIndexRouteImport } from './routes/_app/state-management/approaches/zustand/index'
+import { Route as AppStateManagementApproachesContextApiIndexRouteImport } from './routes/_app/state-management/approaches/context-api/index'
 
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/_app/',
@@ -35,11 +37,6 @@ const AppPathlessLayoutRoute = AppPathlessLayoutRouteImport.update({
   id: '/_app/_pathlessLayout',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppZustandIndexRoute = AppZustandIndexRouteImport.update({
-  id: '/_app/zustand/',
-  path: '/zustand/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AppWordOmitterIndexRoute = AppWordOmitterIndexRouteImport.update({
   id: '/_app/word-omitter/',
   path: '/word-omitter/',
@@ -48,6 +45,11 @@ const AppWordOmitterIndexRoute = AppWordOmitterIndexRouteImport.update({
 const AppTanstackFormIndexRoute = AppTanstackFormIndexRouteImport.update({
   id: '/_app/tanstack-form/',
   path: '/tanstack-form/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppStateManagementIndexRoute = AppStateManagementIndexRouteImport.update({
+  id: '/_app/state-management/',
+  path: '/state-management/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppSlideshowIndexRoute = AppSlideshowIndexRouteImport.update({
@@ -109,6 +111,18 @@ const AppAlgorithmsIndexRoute = AppAlgorithmsIndexRouteImport.update({
   path: '/algorithms/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppStateManagementApproachesZustandIndexRoute =
+  AppStateManagementApproachesZustandIndexRouteImport.update({
+    id: '/_app/state-management/approaches/zustand/',
+    path: '/state-management/approaches/zustand/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AppStateManagementApproachesContextApiIndexRoute =
+  AppStateManagementApproachesContextApiIndexRouteImport.update({
+    id: '/_app/state-management/approaches/context-api/',
+    path: '/state-management/approaches/context-api/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
@@ -123,9 +137,11 @@ export interface FileRoutesByFullPath {
   '/nested-comments': typeof AppNestedCommentsIndexRoute
   '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
   '/slideshow': typeof AppSlideshowIndexRoute
+  '/state-management': typeof AppStateManagementIndexRoute
   '/tanstack-form': typeof AppTanstackFormIndexRoute
   '/word-omitter': typeof AppWordOmitterIndexRoute
-  '/zustand': typeof AppZustandIndexRoute
+  '/state-management/approaches/context-api': typeof AppStateManagementApproachesContextApiIndexRoute
+  '/state-management/approaches/zustand': typeof AppStateManagementApproachesZustandIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
@@ -140,9 +156,11 @@ export interface FileRoutesByTo {
   '/nested-comments': typeof AppNestedCommentsIndexRoute
   '/patient-medical-records': typeof AppPatientMedicalRecordsIndexRoute
   '/slideshow': typeof AppSlideshowIndexRoute
+  '/state-management': typeof AppStateManagementIndexRoute
   '/tanstack-form': typeof AppTanstackFormIndexRoute
   '/word-omitter': typeof AppWordOmitterIndexRoute
-  '/zustand': typeof AppZustandIndexRoute
+  '/state-management/approaches/context-api': typeof AppStateManagementApproachesContextApiIndexRoute
+  '/state-management/approaches/zustand': typeof AppStateManagementApproachesZustandIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -159,9 +177,11 @@ export interface FileRoutesById {
   '/_app/nested-comments/': typeof AppNestedCommentsIndexRoute
   '/_app/patient-medical-records/': typeof AppPatientMedicalRecordsIndexRoute
   '/_app/slideshow/': typeof AppSlideshowIndexRoute
+  '/_app/state-management/': typeof AppStateManagementIndexRoute
   '/_app/tanstack-form/': typeof AppTanstackFormIndexRoute
   '/_app/word-omitter/': typeof AppWordOmitterIndexRoute
-  '/_app/zustand/': typeof AppZustandIndexRoute
+  '/_app/state-management/approaches/context-api/': typeof AppStateManagementApproachesContextApiIndexRoute
+  '/_app/state-management/approaches/zustand/': typeof AppStateManagementApproachesZustandIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -178,9 +198,11 @@ export interface FileRouteTypes {
     | '/nested-comments'
     | '/patient-medical-records'
     | '/slideshow'
+    | '/state-management'
     | '/tanstack-form'
     | '/word-omitter'
-    | '/zustand'
+    | '/state-management/approaches/context-api'
+    | '/state-management/approaches/zustand'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -195,9 +217,11 @@ export interface FileRouteTypes {
     | '/nested-comments'
     | '/patient-medical-records'
     | '/slideshow'
+    | '/state-management'
     | '/tanstack-form'
     | '/word-omitter'
-    | '/zustand'
+    | '/state-management/approaches/context-api'
+    | '/state-management/approaches/zustand'
   id:
     | '__root__'
     | '/_app/_pathlessLayout'
@@ -213,9 +237,11 @@ export interface FileRouteTypes {
     | '/_app/nested-comments/'
     | '/_app/patient-medical-records/'
     | '/_app/slideshow/'
+    | '/_app/state-management/'
     | '/_app/tanstack-form/'
     | '/_app/word-omitter/'
-    | '/_app/zustand/'
+    | '/_app/state-management/approaches/context-api/'
+    | '/_app/state-management/approaches/zustand/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -232,9 +258,11 @@ export interface RootRouteChildren {
   AppNestedCommentsIndexRoute: typeof AppNestedCommentsIndexRoute
   AppPatientMedicalRecordsIndexRoute: typeof AppPatientMedicalRecordsIndexRoute
   AppSlideshowIndexRoute: typeof AppSlideshowIndexRoute
+  AppStateManagementIndexRoute: typeof AppStateManagementIndexRoute
   AppTanstackFormIndexRoute: typeof AppTanstackFormIndexRoute
   AppWordOmitterIndexRoute: typeof AppWordOmitterIndexRoute
-  AppZustandIndexRoute: typeof AppZustandIndexRoute
+  AppStateManagementApproachesContextApiIndexRoute: typeof AppStateManagementApproachesContextApiIndexRoute
+  AppStateManagementApproachesZustandIndexRoute: typeof AppStateManagementApproachesZustandIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -253,13 +281,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppPathlessLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_app/zustand/': {
-      id: '/_app/zustand/'
-      path: '/zustand'
-      fullPath: '/zustand'
-      preLoaderRoute: typeof AppZustandIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/_app/word-omitter/': {
       id: '/_app/word-omitter/'
       path: '/word-omitter'
@@ -272,6 +293,13 @@ declare module '@tanstack/react-router' {
       path: '/tanstack-form'
       fullPath: '/tanstack-form'
       preLoaderRoute: typeof AppTanstackFormIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/state-management/': {
+      id: '/_app/state-management/'
+      path: '/state-management'
+      fullPath: '/state-management'
+      preLoaderRoute: typeof AppStateManagementIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/slideshow/': {
@@ -351,6 +379,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAlgorithmsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/state-management/approaches/zustand/': {
+      id: '/_app/state-management/approaches/zustand/'
+      path: '/state-management/approaches/zustand'
+      fullPath: '/state-management/approaches/zustand'
+      preLoaderRoute: typeof AppStateManagementApproachesZustandIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/state-management/approaches/context-api/': {
+      id: '/_app/state-management/approaches/context-api/'
+      path: '/state-management/approaches/context-api'
+      fullPath: '/state-management/approaches/context-api'
+      preLoaderRoute: typeof AppStateManagementApproachesContextApiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -368,9 +410,13 @@ const rootRouteChildren: RootRouteChildren = {
   AppNestedCommentsIndexRoute: AppNestedCommentsIndexRoute,
   AppPatientMedicalRecordsIndexRoute: AppPatientMedicalRecordsIndexRoute,
   AppSlideshowIndexRoute: AppSlideshowIndexRoute,
+  AppStateManagementIndexRoute: AppStateManagementIndexRoute,
   AppTanstackFormIndexRoute: AppTanstackFormIndexRoute,
   AppWordOmitterIndexRoute: AppWordOmitterIndexRoute,
-  AppZustandIndexRoute: AppZustandIndexRoute,
+  AppStateManagementApproachesContextApiIndexRoute:
+    AppStateManagementApproachesContextApiIndexRoute,
+  AppStateManagementApproachesZustandIndexRoute:
+    AppStateManagementApproachesZustandIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

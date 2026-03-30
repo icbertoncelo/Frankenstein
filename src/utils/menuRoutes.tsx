@@ -80,8 +80,8 @@ export const MENU_ROUTES = [
     icon: <List size={20} />,
   },
   {
-    name: "Zustand",
-    path: "/zustand",
+    name: "State Management",
+    path: "/state-management",
     icon: <Bolt size={20} />,
   },
 ];
