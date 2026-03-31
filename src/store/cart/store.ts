@@ -1,32 +1,24 @@
 import { create, type StateCreator } from "zustand";
-import type { CartItem, CartItemInput, CartStore } from "./types";
-
-function normalizeCartItem(item: CartItemInput): CartItem {
-  return {
-    ...item,
-    isFavorite: item.isFavorite ?? false,
-  };
-}
+import type { CartStore } from "./types";
 
 export const cartStore: StateCreator<CartStore> = (set) => ({
   items: [],
   actions: {
     addItem: (item) =>
       set((state) => {
-        const normalizedItem = normalizeCartItem(item);
         const existing = state.items.find((i) => i.id === item.id);
 
         if (existing) {
           return {
             items: state.items.map((i) =>
               i.id === item.id
-                ? { ...i, quantity: i.quantity + normalizedItem.quantity }
+                ? { ...i, quantity: i.quantity + item.quantity }
                 : i,
             ),
           };
         }
 
-        return { items: [...state.items, normalizedItem] };
+        return { items: [...state.items, item] };
       }),
     removeItem: (id) =>
       set((state) => ({

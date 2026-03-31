@@ -1,8 +1,8 @@
+import { useCart } from "@/contexts/CartProvider";
 import type { CartItem } from "@/dtos/cart";
-import { useCartActions } from "@/store/cart";
 
 export function AddItemButton({ item }: { item: CartItem }) {
-  const { addItem } = useCartActions();
+  const { addItem } = useCart();
 
   return (
     <button
@@ -15,7 +15,7 @@ export function AddItemButton({ item }: { item: CartItem }) {
 }
 
 export function ClearCartButton() {
-  const { clearCart } = useCartActions();
+  const { clearCart } = useCart();
 
   return (
     <button
@@ -28,7 +28,7 @@ export function ClearCartButton() {
 }
 
 export function RemoveItemButton({ itemId }: { itemId: string }) {
-  const { removeItem } = useCartActions();
+  const { removeItem } = useCart();
 
   return (
     <button
@@ -47,7 +47,7 @@ export function ToggleFavoriteButton({
   itemId: string;
   isFavorite: boolean;
 }) {
-  const { toggleFavorite } = useCartActions();
+  const { toggleFavorite } = useCart();
 
   return (
     <button

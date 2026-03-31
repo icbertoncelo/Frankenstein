@@ -1,12 +1,12 @@
-import { useCartItems } from "@/store/cart";
-import { RemoveItemButton, ToggleFavoriteButton } from "./Buttons";
 import { NoData } from "../../-components/NoData";
+import { RemoveItemButton, ToggleFavoriteButton } from "./Buttons";
+import { useCart } from "@/contexts/CartProvider";
 
 export function ItemsList() {
-  const items = useCartItems();
+  const { items } = useCart();
 
   if (items.length === 0) {
-    return <NoData />;
+    return <NoData />
   }
 
   return (

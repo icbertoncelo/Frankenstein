@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ItemsList } from "./-components/ItemsList";
 import { CartTotal } from "./-components/CartTotal";
-import { CartHeader } from "./-components/CartHeader";
 import { ProductList } from "./-components/ProductList";
+import { CartHeader } from "../-components/CartHeader";
+import { ClearCartButton } from "./-components/Buttons";
 
 export const Route = createFileRoute(
   "/_app/state-management/approaches/zustand/",
@@ -22,7 +23,9 @@ function RouteComponent() {
         </Link>
 
         <ProductList />
-        <CartHeader />
+        <CartHeader>
+          <ClearCartButton />
+        </CartHeader>
         <ItemsList />
         <CartTotal />
       </div>
