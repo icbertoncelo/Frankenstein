@@ -7,13 +7,6 @@ export interface DefaultResponse<D, E> {
   headers?: Record<typeof RETRY_AFTER_HEADER, number | string>;
 }
 
-export interface RetryOptions {
-  maxRetryAttempts?: number;
-  baseDelayInMs?: number;
-  retries?: number;
-  shouldHandleUnauthorized?: boolean;
-}
-
 export interface ProblemDetailsJson {
   detail?: string;
   type?: string;
