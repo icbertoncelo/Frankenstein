@@ -1,5 +1,5 @@
+import { useProducts } from "@/services/product-api/hooks/useProducts";
 import { ProductCard } from "./ProductCard";
-import { useProducts } from "@/hooks/useProducts";
 
 export function ProductList() {
   const { products, isLoading, isError } = useProducts();

@@ -1,4 +1,4 @@
-import { useProducts } from "@/hooks/useProducts";
+import { useProducts } from "@/services/product-api/hooks/useProducts";
 import { ProductCard } from "./ProductCard";
 
 export function ProductList() {

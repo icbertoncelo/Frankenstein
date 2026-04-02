@@ -10,7 +10,7 @@ export function useProducts() {
     data: products = [],
     isLoading,
     isError,
-  } = useQuery<Product[] | null>({
+  } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: async () => {
       const { data, error, status } = await getProducts();
@@ -22,7 +22,7 @@ export function useProducts() {
         throw queryError;
       }
 
-      return data;
+      return data ?? [];
     },
     retry: retryApiCall,
     retryDelay: retryDelay,

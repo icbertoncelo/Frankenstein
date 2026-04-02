@@ -2,6 +2,7 @@ export const STATUS_CODES = {
   OK: 200,
   ACCEPTED: 202,
   NO_CONTENT: 204,
+  MULTIPLE_CHOICES: 300,
   BAD_REQUEST: 400,
   UNAUTHORIZED: 401,
   FORBIDDEN: 403,
@@ -21,4 +22,4 @@ export const SHOULD_RETRY = [
   STATUS_CODES.TOO_MANY_REQUESTS,
 ];
 
-export const RETRY_AFTER_HEADER = 'Retry-After';
+export const RETRY_AFTER_HEADER = "Retry-After";
