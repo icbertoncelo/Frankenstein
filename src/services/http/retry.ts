@@ -1,4 +1,4 @@
-import { waitMs } from "@/utils/wait";
+import { waitMs } from "@/utils/functions/wait";
 import { RETRY_AFTER_HEADER } from "./constants";
 import { type DefaultResponse, type RetryOptions } from "./interfaces";
 import {

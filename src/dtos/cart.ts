@@ -12,5 +12,3 @@ export interface CartActions {
   clearCart: () => void;
   toggleFavorite: (id: string) => void;
 }
-
-export type Product = Omit<CartItem, "quantity" | "isFavorite">;

@@ -1,4 +1,4 @@
-import type { Product } from "@/dtos/cart";
+import type { Product } from "@/dtos/product";
 import { useCartActions } from "@/store/cart";
 
 export function ProductCard({ product }: { product: Product }) {

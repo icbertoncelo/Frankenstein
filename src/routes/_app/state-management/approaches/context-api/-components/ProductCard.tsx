@@ -1,5 +1,5 @@
 import { useCart } from "@/contexts/CartProvider";
-import type { Product } from "@/dtos/cart";
+import type { Product } from "@/dtos/product";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
