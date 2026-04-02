@@ -8,7 +8,19 @@ To run this application:
 
 ```bash
 npm install
-npm run start
+npm run dev
+```
+
+To run the fake API for products in a second terminal:
+
+```bash
+npm run api
+```
+
+The products endpoint will be available at:
+
+```bash
+http://localhost:3001/products
 ```
 
 # Building For Production

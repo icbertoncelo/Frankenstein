@@ -1,0 +1,9 @@
+{
+  "products": [
+    { "id": "1", "name": "Mechanical Keyboard", "price": 129.99 },
+    { "id": "2", "name": "Wireless Mouse", "price": 49.99 },
+    { "id": "3", "name": "Monitor Stand", "price": 34.99 },
+    { "id": "4", "name": "USB-C Hub", "price": 59.99 },
+    { "id": "5", "name": "Desk Mat", "price": 24.99 }
+  ]
+}
