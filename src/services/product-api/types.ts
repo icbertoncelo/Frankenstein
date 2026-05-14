@@ -1,3 +1,3 @@
-import type { ProblemDetailsJson } from "../http/interfaces";
+import type { ProblemDetailsJson } from "../http/types";
 
 export type DefaultErrorMessageProductApi = null | string | ProblemDetailsJson;

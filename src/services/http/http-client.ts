@@ -5,7 +5,7 @@ import {
   type AxiosRequestConfig,
 } from "axios";
 
-import { type DefaultResponse, type ProblemDetailsJson } from "./interfaces";
+import { type DefaultResponse, type ProblemDetailsJson } from "./types";
 import { DEFAULT_ERROR_MSG, defaultErrorResponse } from "./utils";
 
 type HttpMethod = "get" | "post" | "put" | "patch" | "delete";
@@ -22,14 +22,14 @@ export class HttpClient<
     config?: AxiosRequestConfig,
   ) {
     try {
-      return (
-        await this.httpInstance.request<DefaultResponse<ResponseData, null>>({
-          ...config,
-          method,
-          url,
-          data: payload,
-        })
-      ).data;
+      const { data } = await this.httpInstance.request<DefaultResponse<ResponseData, null>>({
+        ...config,
+        method,
+        url,
+        data: payload,
+      });
+
+      return data;
     } catch (err) {
       if (isAxiosError(err)) {
         return defaultErrorResponse(

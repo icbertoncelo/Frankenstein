@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 
 import { SHOULD_RETRY, STATUS_CODES } from "./constants";
-import { type DefaultResponse } from "./interfaces";
+import { type DefaultResponse } from "./types";
 
 export const DEFAULT_ERROR_MSG = "Something went wrong. Please try again";
 
